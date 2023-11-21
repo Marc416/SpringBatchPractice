@@ -1,13 +1,11 @@
 package com.joonhee.springbatchpractice.controller
 
+import com.joonhee.springbatchpractice.request.JobParamsRequest
 import com.joonhee.springbatchpractice.service.JobService
 import org.springframework.batch.core.Job
 import org.springframework.batch.core.launch.JobLauncher
 import org.springframework.beans.factory.annotation.Qualifier
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/job")
@@ -28,6 +26,17 @@ class JobController(
     ): String {
 
         jobService.startJob(jobName)
+
+        return "Job Started"
+    }
+
+    @PostMapping("/start/{jobName}")
+    fun startJobWithBodyData(
+        @PathVariable jobName: String,
+        @RequestBody jobParams: List<JobParamsRequest>
+    ): String {
+
+        jobService.startJobWithBodyData(jobName, jobParams)
 
         return "Job Started"
     }
