@@ -31,7 +31,7 @@ class BatchConfiguration(
 
     ) {
 
-//    @Bean
+    @Bean
     fun job1(): Job {
         return jobBuilderFactory.get("FirstJob")
             .incrementer(RunIdIncrementer())
@@ -41,7 +41,7 @@ class BatchConfiguration(
             .build()
     }
 
-//    @Bean
+    @Bean
     fun job2(): Job {
         return jobBuilderFactory.get("SecondJob")
             .incrementer(RunIdIncrementer())
@@ -50,7 +50,7 @@ class BatchConfiguration(
             .build()
     }
 
-//    @Bean
+    @Bean
     fun job3(): Job {
         return jobBuilderFactory.get("ThirdJob")
             .incrementer(RunIdIncrementer())
