@@ -15,8 +15,8 @@ class SecondJobScheduler(
     private val job2: Job
 ) {
     // 크론 표현식은 다음 사이트에서 확인 가능
-    // https://crontab.guru/
-    @Scheduled(cron = "0 0/1 * 1/1 * ?")
+    // http://www.cronmaker.com
+    @Scheduled(cron = "0 0/30 * 1/1 * ?")
     fun secondJobStarter() {
         val params = HashMap<String, JobParameter>()
         params["currentTime"] = JobParameter(System.currentTimeMillis())
