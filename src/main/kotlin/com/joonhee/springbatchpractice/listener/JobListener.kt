@@ -5,8 +5,9 @@ import org.springframework.batch.core.JobExecutionListener
 import org.springframework.stereotype.Component
 
 @Component
-class FirstJobListener:JobExecutionListener {
+class JobListener:JobExecutionListener {
     override fun beforeJob(jobExecution: JobExecution) {
+        println("잡 시작합니다")
         println("Before Job" + jobExecution.jobInstance.jobName)
         println("Params" + jobExecution.jobParameters)
         println("Exec Context" + jobExecution.executionContext)
@@ -18,5 +19,6 @@ class FirstJobListener:JobExecutionListener {
         println("After Job" + jobExecution.jobInstance.jobName)
         println("Params" + jobExecution.jobParameters)
         println("Exec Context" + jobExecution.executionContext)
+        println("잡 종료합니다")
     }
 }

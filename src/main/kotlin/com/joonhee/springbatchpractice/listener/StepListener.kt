@@ -6,8 +6,9 @@ import org.springframework.batch.core.StepExecutionListener
 import org.springframework.stereotype.Component
 
 @Component
-class FirstStepListener: StepExecutionListener{
+class StepListener: StepExecutionListener{
     override fun beforeStep(stepExecution: StepExecution) {
+        println("스텝 시작합니다")
         println("Before Step" + stepExecution.stepName)
         println("Params" + stepExecution.jobParameters)
         println("Exec Context" + stepExecution.executionContext)
@@ -19,6 +20,7 @@ class FirstStepListener: StepExecutionListener{
         println("After Step" + stepExecution.stepName)
         println("Params" + stepExecution.jobParameters)
         println("Exec Context" + stepExecution.executionContext)
+        println("스텝 종료합니다")
         return null
     }
 }
